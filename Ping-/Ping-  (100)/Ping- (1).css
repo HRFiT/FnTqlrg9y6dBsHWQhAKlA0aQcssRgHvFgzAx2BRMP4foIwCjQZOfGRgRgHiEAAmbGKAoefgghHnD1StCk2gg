@@ -1,0 +1,44 @@
+/* ========================================
+BASE STYLES & RESET
+======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure the viewport scales correctly on mobile */
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: url('https://static.wixstatic.com/media/0a13f5_c67d95c70723474ebb15de67904d2e63~mv2.jpg') 
+              no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed; /* Desktop-friendly */
+
+  /* Mobile fix: prevent zooming or weird cropping */
+  background-attachment: scroll;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* OPTIONAL: if you have content containers later */
+.container {
+  max-width: 100%;
+  padding: 1rem;
+}
+
+/* Improve scaling on screens under 600px */
+@media (max-width: 600px) {
+  body {
+    background-position: center top; /* better crop for tall mobile screens */
+    background-size: cover;
+  }
+}
