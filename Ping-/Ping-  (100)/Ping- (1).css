@@ -1,47 +1,83 @@
 /* ========================================
-BASE STYLES & RESET
+   BASE STYLES & RESET
 ======================================== */
-* {
+
+/* Global reset */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Ensure the viewport scales correctly on mobile */
+/* Root viewport safety */
 html {
   width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
 }
-body {
-  overflow-x: hidden;
-}
-body {
-  background: url('https://static.wixstatic.com/media/0a13f5_c67d95c70723474ebb15de67904d2e63~mv2.jpg') 
-              no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed; /* Desktop-friendly */
 
-  /* Mobile fix: prevent zooming or weird cropping */
+/* Body base */
+body {
+  min-height: 100vh;
+  min-height: 100dvh; /* Mobile viewport fix */
+
+  background-image: url('https://static.wixstatic.com/media/0a13f5_c67d95c70723474ebb15de67904d2e63~mv2.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  /* Mobile-safe background behavior */
   background-attachment: scroll;
 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
+
   width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
 }
 
-/* OPTIONAL: if you have content containers later */
+/* Content containers */
 .container {
+  width: 100%;
   max-width: 100%;
   padding: 1rem;
 }
 
-/* Improve scaling on screens under 600px */
-@media (max-width: 600px) {
-  body {
-    background-position: center top; /* better crop for tall mobile screens */
-    background-size: cover;
-  }
+/* Images, media, canvas safety */
+img,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
+/* Inputs & buttons safety */
+input,
+button,
+select,
+textarea {
+  max-width: 100%;
+  font-family: inherit;
+}
+
+/* ========================================
+   MOBILE OPTIMIZATION
+======================================== */
+@media (max-width: 600px) {
+
+  body {
+    background-position: center top;
+    background-size: cover;
+  }
+
+  /* Prevent accidental overflow */
+  .container,
+  .card,
+  .box {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
