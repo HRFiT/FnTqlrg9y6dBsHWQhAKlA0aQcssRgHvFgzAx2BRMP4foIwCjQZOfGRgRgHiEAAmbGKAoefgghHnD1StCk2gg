@@ -12,7 +12,9 @@ html {
   width: 100%;
   overflow-x: hidden;
 }
-
+body {
+  overflow-x: hidden;
+}
 body {
   background: url('https://static.wixstatic.com/media/0a13f5_c67d95c70723474ebb15de67904d2e63~mv2.jpg') 
               no-repeat center center;
@@ -42,3 +44,4 @@ body {
     background-size: cover;
   }
 }
+
